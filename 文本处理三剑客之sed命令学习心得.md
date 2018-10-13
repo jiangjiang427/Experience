@@ -7,9 +7,10 @@ sed是一种流编辑器，它一次处理一行内容。处理时，把当前�
 
 ## 基本用法     
 
-sed [option]... 'script' inputfile...        
+        sed [option]... 'script' inputfile...      
+***
 
-常用选项：    
+#### [option]：    
 
         -n               不输出模式空间内容到屏幕，即不自动打印    
         
@@ -19,12 +20,14 @@ sed [option]... 'script' inputfile...
         
         -r               支持使用扩展正则表达式    
         
-        -i.bak           备份文件并原处编辑    
+        -i.bak           备份文件并原处编辑      
+
+#### script:    
+
+            '地址+命令     
         
-script: 
-        '地址+命令     
-        
-地址定界： 
+#### 地址定界： 
+
          (1) 不给地址：对全文进行处理   
          
          (2) 单地址：   
@@ -49,7 +52,7 @@ script:
                   
                   2~2 偶数行     
                   
-编辑命令：   
+#### 编辑命令：   
 
         d              删除模式空间匹配的行，并立即启用下一轮循环   
         
@@ -130,6 +133,7 @@ script:
 
 + 新建一个test文本
 ````bash
+<table>
 [root@centos7 test]#cat test.txt 
 systemctl_redirect
 redhalt5
@@ -158,4 +162,5 @@ strstr
 
 return
 ````
-+ 由此可以看出sed的模式空间与打印屏幕之间的关系
++ 以上可以加深sed的模式空间与打印屏幕之间的关系理解
+***
