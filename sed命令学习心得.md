@@ -1,11 +1,11 @@
-              #sed命令学习心得#
+              # sed命令学习心得
 
 ***
-##先初步介绍下sed##   
+## 先初步介绍下sed
 
 sed是一种流编辑器，它一次处理一行内容。处理时，把当前处理的行存储在临时缓冲区中，称为“模式空间”（pattern space）,接着用sed命令处理缓冲区中的内容，处理完成后，把缓冲区的内容送往屏幕。然后读入下行，执行下一个循环。如果没有使诸如‘D’的特殊命令，那会在两个循环之间清空模式空间，但不会清空保留空间。这样不断重复，直到文件末尾。文件内容并没有改变，除非你使用重定向存储输出。   
 
-##sed练习##  
+## sed练习
 
 1.删除centos7系统/etc/grub2.cfg文件中所有以空白开头的行行首的空白字符 
 
@@ -51,7 +51,7 @@ sed是一种流编辑器，它一次处理一行内容。处理时，把当前�
 
 `[root@centos7 ~]#sed -n 'N;s/\n//p' f1`
 
-##sed深层次的理解##  
+## sed深层次的理解
 
 +新建一个test文本
 ````bash
@@ -61,7 +61,7 @@ redhalt5
 strstr8
 
 return
-
+````
 +运行sed options为-n 且查找替换后有p选项 
 ````bash
 [root@centos7 test]#sed -nr 's/[^[:alpha:]]+/\n/gp' test.txt
@@ -70,7 +70,7 @@ redirect
 redhalt
 
 strstr
-
+````
 +运行sed options无-n 且查找替换后没有p选项
 ````bash
 [root@centos7 test]#sed -r 's/[^[:alpha:]]+/\n/g' test.txt  
@@ -82,4 +82,5 @@ strstr
 
 
 return
+````
 +由此可以看出sed的模式空间与打印屏幕之间的关系
